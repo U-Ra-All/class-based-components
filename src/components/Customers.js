@@ -18,6 +18,17 @@ class Customers extends Component {
     };
   }
 
+  componentDidUpdate() {
+    // try {
+    //   someCodeWithPotentialErrors();
+    // } catch {
+    //   // Обработка ошибки
+    // }
+    if (this.props.customers.length === 0) {
+      throw new Error("Нет заказчиков!");
+    }
+  }
+
   toggleCustomersHandler() {
     // this.state.showCustomers = false; - НЕПРАВИЛЬНО!
     this.setState((curState) => {
